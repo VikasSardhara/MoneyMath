@@ -1,26 +1,38 @@
 import yfinance as yf
 from datetime import datetime, timedelta
+import os
 
-def process(date, month, year, stock_symbol):
+print("This programm will give you stock price of each day of month")
+
+abc = {}
+
+stock = 'FDX'
+month = 11
+year = 2023
+date = 1
+
+for date in range(1,31):
     last_date = (datetime(year, (month % 12) + 1, 1) - timedelta(days=1)).day
-    day = min(date, last_date)
-    start_date = f"{year}-{month:02d}-01"
-    end_date = f"{year}-{month:02d}-{last_date}"
+    main_date = min (date, last_date)
+
+    startd = f"{year}-{month}-01"
+    endd = f"{year}-{month}-{last_date}"
+
+    target = datetime(year, month, main_date)   
     
+    
+    data = yf.download(stock, startd, endd)
     try:
-        target_date = datetime(year, month, day)
-        data = yf.download(stock_symbol, start_date, end_date)
-        price = data.loc[target_date.strftime("%Y-%m-%d")]["Close"]
-        print(f"Closing price on {target_date.strftime('%Y-%m-%d')}: {price}")
+        price = data.loc[target.strftime("%Y-%m-%d")]["Close"]
+        abc[date] = round(price, 2)
     except KeyError:
-        print("Error: Data not available for the specified date.")
+        print(f"No data available for {target.strftime('%Y-%m-%d')}")
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"Exception Error: {e}")
 
-if __name__ == "__main__":
-    date_input = int(input("Enter date: "))
-    month_input = int(input("Enter month: "))
-    year_input = int(input("Enter year: "))
-    stock_input = str(input("Enter Stock Symbol: "))
+os.system('cls')
 
-    process(date_input, month_input, year_input, stock_input)
+for date, price in abc.items():
+    formatted_date = datetime(year, month, date).strftime("%d-%m-%Y")
+    print(f"{formatted_date} : {price}")
+
