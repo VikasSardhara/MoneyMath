@@ -34,7 +34,3 @@ To run the project, follow these steps:
 
 - The project assumes a certain directory structure, so make sure to adjust file paths if needed.
 - Customize the input prompts and messages as per your preferences.
-
-Feel free to explore and modify the code to suit your specific needs.
-
-This README.md file provides an overview of the project structure, usage instructions, and additional notes. Adjust it further based on your specific project details and requirements.
