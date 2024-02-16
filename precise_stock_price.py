@@ -6,10 +6,9 @@ print("This programm will give you stock price of each day of month")
 
 abc = {}
 
-stock = 'FDX'
-month = 11
-year = 2023
-date = 1
+stock = input("Enter Stock Symbol in Uppercase: ")
+month = int(input("Enter number of month: "))
+year = int(input("Enter year: "))
 
 for date in range(1,31):
     last_date = (datetime(year, (month % 12) + 1, 1) - timedelta(days=1)).day
