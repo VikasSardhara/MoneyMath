@@ -6,9 +6,6 @@ import sys
 print("This programm will give you stock price of each day of month")
 
 price_data = {}
-# stock = input("Enter Stock Symbol in Uppercase: ")
-# month = int(input("Enter number of month: "))
-# year = int(input("Enter year: "))
 
 # stock = "AMZN"
 # month = 11
