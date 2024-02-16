@@ -4,7 +4,7 @@ import os
 
 print("This programm will give you stock price of each day of month")
 
-abc = {}
+price_data = {}
 
 stock = input("Enter Stock Symbol in Uppercase: ")
 month = int(input("Enter number of month: "))
@@ -23,7 +23,7 @@ for date in range(1,31):
     data = yf.download(stock, startd, endd)
     try:
         price = data.loc[target.strftime("%Y-%m-%d")]["Close"]
-        abc[date] = round(price, 2)
+        price_data[date] = round(price, 2)
     except KeyError:
         print(f"No data available for {target.strftime('%Y-%m-%d')}")
     except Exception as e:
@@ -31,7 +31,7 @@ for date in range(1,31):
 
 os.system('cls')
 
-for date, price in abc.items():
+for date, price in price_data.items():
     formatted_date = datetime(year, month, date).strftime("%d-%m-%Y")
     print(f"{formatted_date} : {price}")
 
