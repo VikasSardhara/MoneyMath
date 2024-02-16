@@ -9,15 +9,20 @@ price_data = {}
 # stock = input("Enter Stock Symbol in Uppercase: ")
 # month = int(input("Enter number of month: "))
 # year = int(input("Enter year: "))
+
+stock = "AMZN"
+month = 11
+year = 2023
+
 print("    ")
 print("    ")
 print("\033[95mTo run this file, use the following command:\033[0m")
 print("\033[92mFor Fedex: python precise_stock_price.py FDX 11 2023\033[0m")
 print("    ")
 print("    ")
-stock = sys.argv[1].upper()
-month = int(sys.argv[2])
-year = int(sys.argv[3])
+# stock = sys.argv[1].upper()
+# month = int(sys.argv[2])
+# year = int(sys.argv[3])
 
 for date in range(1,31):   
     last_date = (datetime(year, (month % 12) + 1, 1) - timedelta(days=1)).day  
@@ -36,9 +41,19 @@ for date in range(1,31):
 
 os.system('cls')
 
-for date, price in price_data.items():
-    formatted_date = datetime(year, month, date).strftime("%d-%m-%Y")
-    print(f"{formatted_date} : {price}")
-
-# def compare_price();
+company_name = yf.Ticker(stock).info.get("longName", "Company Name Not Found")
+print(f"The company {company_name} ({stock}) is performing in {month}-{year}: ")
+print(" ")
+print("\033[94mGiven data is about Lowest price on that particular day\033[0m")
+print(" ")
+with open('output.txt', 'w') as file:
+    for date, price in price_data.items():
+        formatted_date = datetime(year, month, date).strftime("%d-%m-%Y")
+        file.write(f"{formatted_date} : {str(price)}\n")
+    # print(f"{formatted_date} : {price}")
+# print(" ")
+ 
+# with open('output.txt', 'w') as file:
+#     # Write the content of the variable 'a' to the file
+    
     
