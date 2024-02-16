@@ -7,20 +7,12 @@ print("This programm will give you stock price of each day of month")
 
 price_data = {}
 
-# stock = "AMZN"
-# month = 11
-# year = 2023
-
 print("    ")
 print("    ")
 print("\033[95mTo run this file, use the following command:\033[0m")
 print("\033[92mFor Fedex: python precise_stock_price.py FDX 11 2023\033[0m")
 print("    ")
 print("    ")
-
-# stock = input("Enter Stock Symbol in Uppercase: ")
-# month = int(input("Enter number of month: "))
-# year = int(input("Enter year: "))
 
 stock = sys.argv[1].upper()
 month = int(sys.argv[2])
