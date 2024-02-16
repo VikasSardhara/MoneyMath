@@ -1,31 +1,36 @@
 import yfinance as yf
 from datetime import datetime, timedelta
 import os
+import sys
 
 print("This programm will give you stock price of each day of month")
 
 price_data = {}
+# stock = input("Enter Stock Symbol in Uppercase: ")
+# month = int(input("Enter number of month: "))
+# year = int(input("Enter year: "))
+print("    ")
+print("    ")
+print("\033[95mTo run this file, use the following command:\033[0m")
+print("\033[92mFor Fedex: python precise_stock_price.py FDX 11 2023\033[0m")
+print("    ")
+print("    ")
+stock = sys.argv[1].upper()
+month = int(sys.argv[2])
+year = int(sys.argv[3])
 
-stock = input("Enter Stock Symbol in Uppercase: ")
-month = int(input("Enter number of month: "))
-year = int(input("Enter year: "))
-
-for date in range(1,31):
-    last_date = (datetime(year, (month % 12) + 1, 1) - timedelta(days=1)).day
+for date in range(1,31):   
+    last_date = (datetime(year, (month % 12) + 1, 1) - timedelta(days=1)).day  
     main_date = min (date, last_date)
-
     startd = f"{year}-{month}-01"
     endd = f"{year}-{month}-{last_date}"
-
     target = datetime(year, month, main_date)   
-    
-    
     data = yf.download(stock, startd, endd)
     try:
-        price = data.loc[target.strftime("%Y-%m-%d")]["Close"]
+        price = data.loc[target.strftime("%Y-%m-%d")]["Low"]
         price_data[date] = round(price, 2)
     except KeyError:
-        print(f"No data available for {target.strftime('%Y-%m-%d')}")
+         print(f"No data available for {target.strftime('%Y-%m-%d')}")
     except Exception as e:
         print(f"Exception Error: {e}")
 
@@ -35,3 +40,5 @@ for date, price in price_data.items():
     formatted_date = datetime(year, month, date).strftime("%d-%m-%Y")
     print(f"{formatted_date} : {price}")
 
+# def compare_price();
+    
