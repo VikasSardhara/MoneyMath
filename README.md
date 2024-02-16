@@ -1,6 +1,6 @@
-# MoneyMath Project
+# MoneyMath Project - Quantitative Finance Project
 
-The MoneyMath project is a Python application for processing and visualizing stock market data.
+The MoneyMath project is a Python application for quantitative analysis processing and visualizing stock market data.
 
 ## Project Structure
 
