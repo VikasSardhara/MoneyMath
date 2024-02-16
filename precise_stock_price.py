@@ -45,6 +45,3 @@ for date, price in price_data.items():
 
     print(f"{formatted_date} : {price}")
 print(" ")
-
-    
-    
