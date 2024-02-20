@@ -4,6 +4,7 @@ from plot_graph import plot_graph
 from stock_graph_of_each_month import generate_monthly_graphs
 from lowprice_for_eachday import get_lowest_price
 
+print("To Run this file: python main.py <Stock_sumbol> <year>")
 def main():
     # Input for stock data processing
     stock = input("Enter Stock Symbol in Uppercase: ")
