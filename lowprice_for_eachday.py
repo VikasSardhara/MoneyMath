@@ -9,13 +9,13 @@ print("This program will give you stock price for each day of the year")
 print("    ")
 print("    ")
 print("\033[95mTo run this file, use the following command:\033[0m")
-print("\033[92mFor FedEx: python precise_stock_price.py FDX 11 2023\033[0m")
+print("\033[92mRun this file: python precise_stock_price.py <stock_symbol> <year>\033[0m")
 print("    ")
 print("    ")
 
 stock = sys.argv[1].upper()
-month = int(sys.argv[2])
-year = int(sys.argv[3])
+year = int(sys.argv[2])
+
 
 for month in range(1, 13):
     for date in range(1, 32):
