@@ -1,6 +1,4 @@
-Certainly! Here's the complete content for the README.md file:
 
-```markdown
 # MoneyMath - Quantitative Finance Project
 
 The MoneyMath project is a Python application for quantitative analysis, processing, and visualizing stock market data.
@@ -50,4 +48,3 @@ To run the project, follow these steps:
 Feel free to explore and modify the code to suit your specific needs.
 ```
 
-You can copy and paste this content into your README.md file. If you have any further modifications or requests, feel free to let me know!
