@@ -7,8 +7,11 @@ print("This programm will give you stock price of each day of month")
 
 print("    ")
 print("    ")
-print("\033[95mTo run this file, use the following command:\033[0m")
+print("\033[95mTo run precise_stock_price.py, use the following command:\033[0m")
 print("\033[92mFor Fedex: python precise_stock_price.py FDX 11 2023\033[0m")
+print("\033[93m Or \033[0m")
+print("\033[95mTo run main.py, use the following command:\033[0m")
+print("\033[92mFor Fedex: python main.py FDX 2023\033[0m")
 print("    ")
 print("    ")
 
