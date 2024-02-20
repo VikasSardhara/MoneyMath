@@ -46,5 +46,3 @@ To run the project, follow these steps:
 - Customize the input prompts and messages as per your preferences.
 
 Feel free to explore and modify the code to suit your specific needs.
-```
-
