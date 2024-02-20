@@ -6,7 +6,7 @@ The MoneyMath project is a Python application for quantitative analysis, process
 
 The project consists of the following files:
 
-1. **process_data.py**: Contains functions for processing stock data and saving it to the `output.txt` file. It is responsible for the initial processing of stock data.
+1. process_data.py: Contains functions for processing stock data and saving it to the `output.txt` file. It is responsible for the initial processing of stock data.
 
 2. **plot_graph.py**: Contains a function for plotting a graph based on the processed data. It takes the processed stock data and creates a visual representation in the form of a graph.
 
