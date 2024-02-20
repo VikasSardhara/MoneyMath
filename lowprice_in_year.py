@@ -13,12 +13,9 @@ print("\033[92mFor FedEx: python precise_stock_price.py FDX 11 2023\033[0m")
 print("    ")
 print("    ")
 
-# stock = sys.argv[1].upper()
-# month = int(sys.argv[2])
-# year = int(sys.argv[3])
-
-stock = "FDX"
-year = 2023
+stock = sys.argv[1].upper()
+month = int(sys.argv[2])
+year = int(sys.argv[3])
 
 for month in range(1, 13):
     for date in range(1, 32):
