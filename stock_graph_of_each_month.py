@@ -1,4 +1,4 @@
-# process_data.py
+# stock_graph_of_each_month.py
 import yfinance as yf
 from datetime import datetime, timedelta
 import os
@@ -8,6 +8,7 @@ matplotlib.use('Agg')  # Use Agg backend which doesn't require an interactive en
 import matplotlib.pyplot as plt
 
 def process_stock_data(stock, year, month):
+    """Process stock data and return a dictionary of date: low price."""
     price_data = {}
     for date in range(1, 31):
         last_date = (datetime(year, (month % 12) + 1, 1) - timedelta(days=1)).day
@@ -23,16 +24,17 @@ def process_stock_data(stock, year, month):
             print(f"No data available for {target.strftime('%Y-%m-%d')}")
         except Exception as e:
             print(f"Exception Error: {e}")
-
     return price_data
 
 def save_to_file(stock, year, month, price_data, folder_path):
+    """Save processed data to a file."""
     with open(os.path.join(folder_path, f'output_{month}.txt'), 'w') as file:
         for date, price in price_data.items():
             formatted_date = date.strftime("%d-%m-%Y")
             file.write(f"{formatted_date} : {str(price)}\n")
 
 def plot_graph(stock, year, month, price_data, folder_path):
+    """Generate and save a graph for the given month."""
     dates = list(price_data.keys())
     prices = list(price_data.values())
 
@@ -46,13 +48,20 @@ def plot_graph(stock, year, month, price_data, folder_path):
     plt.close()
 
 if __name__ == "__main__":
+    # Validate command-line arguments
+    if len(sys.argv) != 3:
+        print("Usage: python stock_graph_of_each_month.py <stock_symbol> <year>")
+        sys.exit(1)
+
     stock = sys.argv[1].upper()
     year = int(sys.argv[2])
 
+    # Create a folder for images
     folder_path = f'{stock}_images_for_{year}'
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
 
+    # Process and plot data for each month
     for month in range(1, 13):
         price_data = process_stock_data(stock, year, month)
         save_to_file(stock, year, month, price_data, folder_path)
