@@ -1,22 +1,20 @@
-import requests
-import json
+import yfinance as yf
 import time
 
-def get_live_stock_price(api_key, stock_symbol):
-    url = f'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={stock_symbol}&apikey={api_key}'
-
+def get_live_stock_price(stock_symbols):
     while True:
         try:
-            response = requests.get(url)
-            data = response.json()
-            current_price = data["Global Quote"]["05. price"]
-            print(f"Live Stock Price for {stock_symbol}: {current_price}")
+            for symbol in stock_symbols:
+                stock_data = yf.Ticker(symbol)
+                current_price = stock_data.info.get("lastPrice")
+                print(f"Live Stock Price for {symbol}: {current_price}")
+
         except Exception as e:
             print(f"Error fetching data: {e}")
 
-        time.sleep(1)  # Refresh every 1 second
+        time.sleep(5)  # Refresh every 5 seconds
 
 if __name__ == "__main__":
-    api_key = "ICO7U0IDLYTJU3UK"
-    stock_symbol = input("Enter the stock symbol: ").upper()
-    get_live_stock_price(api_key, stock_symbol)
+    stock_symbols = input("Enter comma-separated stock symbols (e.g., AAPL,GOOGL): ").upper().split(',')
+    
+    get_live_stock_price(stock_symbols)
