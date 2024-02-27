@@ -25,7 +25,10 @@ The project consists of the following files:
 6. **lowprice_for_eachday.py**: 
    Fetches and prints the lowest stock price for each day of a specified year. It fetches stock prices for each day using `precise_stock_price.py` and displays the lowest prices.
 
-7. **requirements.txt**: 
+7. **live_price.py**:
+   Monitors and displays live stock prices for the given stock symbols using Yahoo Finance. It provides a real-time view of stock prices.
+
+8. **requirements.txt**: 
    Specifies the required libraries and their versions for the project.
 
 ## Usage
