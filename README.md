@@ -18,18 +18,22 @@ Welcome to MoneyMath, a Quantitative Finance project designed to analyze and vis
    - Description: Retrieves precise stock prices for a specific stock and time period, saving the data to a CSV file.
    - Usage: `python precise_stock_price.py <stock_symbol> <year>`
 
-5. **README.md**
-   - Description: The current file, providing an overview of the project and its components.
-
-6. **requirements.txt**
-   - Description: Lists the required libraries for the project. Install with `pip install -r requirements.txt`.
-
-7. **stock_graph_of_each_month.py**
+5. **stock_graph_of_each_month.py**
    - Description: Generates stock graphs for each month, showcasing low prices throughout the year.
    - Usage: `python stock_graph_of_each_month.py <stock_symbol> <year>`
 
-8. **live_price.py**
+6. **live_price.py**
    - Description: Continuously retrieves and displays live stock prices for specified stock symbols.
    - Usage: `python live_price.py`
+
+7. **arima_forecast.py**
+   - Description: Uses the ARIMA model to forecast future stock prices based on historical data.
+   - Usage: `python arima_forecast.py`
+
+8. **README.md**
+   - Description: The current file, providing an overview of the project and its components.
+
+9. **requirements.txt**
+   - Description: Lists the required libraries for the project. Install with `pip install -r requirements.txt`.
 
 Feel free to explore and run these scripts to analyze and visualize stock market data. For more details on each script and its usage, refer to the specific sections above.
