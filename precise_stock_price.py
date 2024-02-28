@@ -5,9 +5,6 @@ import os
 import sys
 import pandas as pd
 
-stock = "AMZN"
-month = 11
-year = 2023
 
 price_data = {}
 
