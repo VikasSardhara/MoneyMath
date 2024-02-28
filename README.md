@@ -1,3 +1,4 @@
+
 # MoneyMath - Quantitative Finance Project
 
 The MoneyMath project is a Python application for quantitative analysis, processing, and visualizing stock market data.
@@ -12,7 +13,7 @@ The project consists of the following files:
 
 3. **live_price.py**: Fetches and displays live stock prices for specified stock symbols. It continuously updates the prices and clears the console for a clean display.
 
-4. **arima_forecast.py**: Performs an ARIMA analysis on historical stock prices, forecasting future stock prices, and visualizing the results.
+4. **arima_forecast.py**: Performs an ARIMA (AutoRegressive Integrated Moving Average) analysis on historical stock prices, forecasting future stock prices, and visualizing the results.
 
 5. **stock_graph_of_each_month.py**: Generates and saves graphs for each month based on processed stock data. It uses the processed data obtained from `process_data.py` to create monthly stock price graphs.
 
@@ -26,9 +27,50 @@ The project consists of the following files:
 
 ## Usage
 
-To run the project, follow these steps:
+To run specific parts of the project, follow these steps:
 
-1. Install the required libraries:
+### 1. Installing Dependencies
 
-   ```bash
-   pip install -r requirements.txt
+Install the required libraries:
+
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Running Individual Scripts
+
+
+
+- **live_price.py**: Fetch and display live stock prices for specified stock symbols.
+
+  ```bash
+  python live_price.py
+  ```
+
+  Follow the prompts to enter comma-separated stock symbols.
+
+- **arima_forecast.py**: Perform ARIMA analysis on historical stock prices and forecast future prices.
+
+  ```bash
+  python arima_forecast.py STOCK_SYMBOL MONTH YEAR
+  ```
+
+- **main.py**: Run the entire data processing and graph plotting workflow.
+
+  ```bash
+  python main.py
+  ```
+
+  Follow the prompts to enter the stock symbol, month, and year.
+
+- **lowprice_for_eachday.py**: Fetch and print the lowest stock price for each day of a specified year.
+
+  ```bash
+  python lowprice_for_eachday.py STOCK_SYMBOL YEAR
+  ```
+
+### 3. Additional Notes
+
+- The project assumes a specific directory structure, so adjust file paths if needed.
+- Customize the input prompts and messages as per your preferences.
+
