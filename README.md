@@ -30,10 +30,7 @@ Welcome to MoneyMath, a Quantitative Finance project designed to analyze and vis
    - Description: Uses the ARIMA model to forecast future stock prices based on historical data.
    - Usage: `python arima_forecast.py`
 
-8. **README.md**
-   - Description: The current file, providing an overview of the project and its components.
-
-9. **requirements.txt**
+8. **requirements.txt**
    - Description: Lists the required libraries for the project. Install with `pip install -r requirements.txt`.
 
 Feel free to explore and run these scripts to analyze and visualize stock market data. For more details on each script and its usage, refer to the specific sections above.
