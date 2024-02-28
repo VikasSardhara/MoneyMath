@@ -1,50 +1,31 @@
+# precise_stock_price.py
 import yfinance as yf
 from datetime import datetime, timedelta
 import os
 import sys
+import pandas as pd
 
-print("This programm will give you stock price of each day of month")
-
-print("    ")
-print("    ")
-print("\033[95mTo run precise_stock_price.py, use the following command:\033[0m")
-print("\033[92mFor Fedex: python precise_stock_price.py FDX 11 2023\033[0m")
-print("\033[93m Or \033[0m")
-print("\033[95mTo run main.py, use the following command:\033[0m")
-print("\033[92mFor Fedex: python main.py FDX 2023\033[0m")
-print("    ")
-print("    ")
+stock = "AMZN"
+month = 11
+year = 2023
 
 price_data = {}
-stock = sys.argv[1].upper()
-month = int(sys.argv[2])
-year = int(sys.argv[3])
 
-for date in range(1,31):   
-    last_date = (datetime(year, (month % 12) + 1, 1) - timedelta(days=1)).day  
-    main_date = min (date, last_date)
-    startd = f"{year}-{month}-01"
-    endd = f"{year}-{month}-{last_date}"
-    target = datetime(year, month, main_date)   
+for date in range(1, 31):
+    last_date = (datetime(year, (month % 12) + 1, 1) - timedelta(days=1)).day
+    main_date = min(date, last_date)
+    startd = f"{year}-{month:02d}-01"
+    endd = f"{year}-{month:02d}-{last_date:02d}"
+    target = datetime(year, month, main_date)
     data = yf.download(stock, startd, endd)
     try:
         price = data.loc[target.strftime("%Y-%m-%d")]["Low"]
-        price_data[date] = round(price, 2)
+        price_data[target] = round(price, 2)
     except KeyError:
-         print(f"No data available for {target.strftime('%Y-%m-%d')}")
+        print(f"No data available for {target.strftime('%Y-%m-%d')}")
     except Exception as e:
         print(f"Exception Error: {e}")
 
-os.system('cls')
-
-company_name = yf.Ticker(stock).info.get("longName", "Company Name Not Found")
-print(f"The company {company_name} ({stock}) is performing in {month}-{year}: ")
-print(" ")
-print("\033[94mGiven data is about Lowest price on that particular day\033[0m")
-print(" ")
-
-for date, price in price_data.items():
-    formatted_date = datetime(year, month, date).strftime("%d-%m-%Y")
-
-    print(f"{formatted_date} : {price}")
-print(" ")
+# Save historical stock prices to a CSV file
+historical_data = pd.DataFrame(price_data.items(), columns=['Date', 'Low Price'])
+historical_data.to_csv('historical_stock_prices.csv', index=False)
