@@ -1,58 +1,35 @@
-
 # MoneyMath - Quantitative Finance Project
 
-The MoneyMath project is a Python application for quantitative analysis, processing, and visualizing stock market data.
+Welcome to MoneyMath, a Quantitative Finance project designed to analyze and visualize stock market data. Below is a brief overview of the project's components:
 
-## Project Structure
+1. **plot_graph.py**
+   - Description: This script generates a basic plot of stock prices for a given symbol and time range.
+   - Usage: `python plot_graph.py <stock_symbol> <start_date> <end_date>`
 
-The project consists of the following files:
+2. **process_data.py**
+   - Description: This module processes stock data, extracting relevant information for analysis.
+   - Functions: `process_stock_data(stock, year, month)`, `save_to_file(stock, year, month, price_data, folder_path)`, `plot_graph(stock, year, month, price_data, folder_path)`
 
-1. **process_data.py**: 
-   Contains functions for processing stock data and saving it to the `output.txt` file. It is responsible for the initial processing of stock data.
+3. **main.py**
+   - Description: The main script orchestrating the project, calling various modules to perform specific tasks.
+   - Usage: `python main.py`
 
-2. **plot_graph.py**: 
-   Contains a function for plotting a graph based on the processed data. It takes the processed stock data and creates a visual representation in the form of a graph.
+4. **precise_stock_price.py**
+   - Description: Retrieves precise stock prices for a specific stock and time period, saving the data to a CSV file.
+   - Usage: `python precise_stock_price.py <stock_symbol> <year>`
 
-3. **precise_stock_price.py**: 
-   Fetches precise stock prices for a given stock, month, and year. It is a standalone script that can be used to get precise stock prices for specific periods.
+5. **README.md**
+   - Description: The current file, providing an overview of the project and its components.
 
-4. **main.py**: 
-   Serves as the main entry point, calling functions from other files to execute the entire process. It provides a user-friendly interface for running the entire data processing and graph plotting workflow, including generating monthly graphs.
+6. **requirements.txt**
+   - Description: Lists the required libraries for the project. Install with `pip install -r requirements.txt`.
 
-5. **stock_graph_of_each_month.py**: 
-   Generates and saves graphs for each month based on processed stock data. It uses the processed data obtained from `process_data.py` to create monthly stock price graphs.
+7. **stock_graph_of_each_month.py**
+   - Description: Generates stock graphs for each month, showcasing low prices throughout the year.
+   - Usage: `python stock_graph_of_each_month.py <stock_symbol> <year>`
 
-6. **lowprice_for_eachday.py**: 
-   Fetches and prints the lowest stock price for each day of a specified year. It fetches stock prices for each day using `precise_stock_price.py` and displays the lowest prices.
+8. **live_price.py**
+   - Description: Continuously retrieves and displays live stock prices for specified stock symbols.
+   - Usage: `python live_price.py`
 
-7. **live_price.py**:
-   Monitors and displays live stock prices for the given stock symbols using Yahoo Finance. It provides a real-time view of stock prices.
-
-8. **requirements.txt**: 
-   Specifies the required libraries and their versions for the project.
-
-## Usage
-
-To run the project, follow these steps:
-
-1. Install the required libraries:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-2. Run the main.py file:
-
-   ```bash
-   python main.py
-   ```
-
-   Follow the prompts to enter the stock symbol, month, and year. The script will process the data, plot graphs, generate monthly graphs, and display the lowest stock prices for each day of the specified year.
-
-## Notes
-
-- The project is designed for quantitative finance analysis.
-- It assumes a certain directory structure, so make sure to adjust file paths if needed.
-- Customize the input prompts and messages as per your preferences.
-
-Feel free to explore and modify the code to suit your specific needs.
+Feel free to explore and run these scripts to analyze and visualize stock market data. For more details on each script and its usage, refer to the specific sections above.
