@@ -1,2 +1,4 @@
-yfinance
-matplotlib
+yfinance==0.1.63
+matplotlib==3.4.3
+statsmodels==0.13.0
+yahoo_fin==0.8.9
