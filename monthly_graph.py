@@ -1,4 +1,4 @@
-# precise_stock_price.py
+# monthly_graph.py
 import calendar
 import yfinance as yf
 from datetime import datetime, timedelta
