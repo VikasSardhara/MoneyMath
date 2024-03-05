@@ -1,4 +1,3 @@
-
 # MoneyMath - Quantitative Finance Project
 
 The MoneyMath project is a Python application for quantitative analysis, processing, and visualizing stock market data.
@@ -7,23 +6,19 @@ The MoneyMath project is a Python application for quantitative analysis, process
 
 The project consists of the following files:
 
-1. **process_data.py**: Contains functions for processing stock data and saving it to the `output.txt` file. It is responsible for the initial processing of stock data.
+1. **arima_forecast.py**: Performs an ARIMA (AutoRegressive Integrated Moving Average) analysis on historical stock prices, forecasting future stock prices, and visualizing the results.
 
-2. **precise_stock_price.py**: Fetches precise stock prices for a given stock, month, and year. It is a standalone script that can be used to get precise stock prices for specific periods.
+2. **live_price.py**: Fetches and displays live stock prices for specified stock symbols. It continuously updates the prices and clears the console for a clean display.
 
-3. **live_price.py**: Fetches and displays live stock prices for specified stock symbols. It continuously updates the prices and clears the console for a clean display.
+3. **lowprice_for_eachday.py**: Fetches and prints the lowest stock price for each day of a specified year. It fetches stock prices for each day using `monthly_graph.py` and displays the lowest prices.
 
-4. **arima_forecast.py**: Performs an ARIMA (AutoRegressive Integrated Moving Average) analysis on historical stock prices, forecasting future stock prices, and visualizing the results.
+4. **monthly_graph.py**: Fetches stock prices for a given stock, month, and year. It generates and displays graphs for each day of the specified month.
 
-5. **stock_graph_of_each_month.py**: Generates and saves graphs for each month based on processed stock data. It uses the processed data obtained from `process_data.py` to create monthly stock price graphs.
+5. **monthly_price_comparison.py**: Fetches and plot the graph the lowest stock price and highest stock price for each month of a specified year. 
 
-6. **plot_graph.py**: Contains a function for plotting a graph based on the processed data. It takes the processed stock data and creates a visual representation in the form of a graph.
+6. **stock_graph_of_each_month.py**: Generates and saves graphs for each month based on processed stock data. It uses the processed data obtained from `monthly_graph.py` to create monthly stock price graphs.
 
-7. **requirements.txt**: Specifies the required libraries and their versions for the project.
 
-8. **main.py**: Serves as the main entry point, calling functions from other files to execute the entire process. It provides a user-friendly interface for running the entire data processing and graph plotting workflow, including generating monthly graphs.
-
-9. **lowprice_for_eachday.py**: Fetches and prints the lowest stock price for each day of a specified year. It fetches stock prices for each day using `precise_stock_price.py` and displays the lowest prices.
 
 ## Usage
 
@@ -35,42 +30,13 @@ Install the required libraries:
 
 ```bash
 pip install -r requirements.txt
+
 ```
+## Run File
 
-### 2. Running Individual Scripts
+To run specific file of the project
 
+```bash
+python <file_name.py>
 
-
-- **live_price.py**: Fetch and display live stock prices for specified stock symbols.
-
-  ```bash
-  python live_price.py
-  ```
-
-  Follow the prompts to enter comma-separated stock symbols.
-
-- **arima_forecast.py**: Perform ARIMA analysis on historical stock prices and forecast future prices.
-
-  ```bash
-  python arima_forecast.py STOCK_SYMBOL MONTH YEAR
-  ```
-
-- **main.py**: Run the entire data processing and graph plotting workflow.
-
-  ```bash
-  python main.py
-  ```
-
-  Follow the prompts to enter the stock symbol, month, and year.
-
-- **lowprice_for_eachday.py**: Fetch and print the lowest stock price for each day of a specified year.
-
-  ```bash
-  python lowprice_for_eachday.py STOCK_SYMBOL YEAR
-  ```
-
-### 3. Additional Notes
-
-- The project assumes a specific directory structure, so adjust file paths if needed.
-- Customize the input prompts and messages as per your preferences.
-
+```
