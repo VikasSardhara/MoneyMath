@@ -1,25 +1,35 @@
-# arima_forecast.py
+# arima_forecast_combined.py
 import pandas as pd
 import matplotlib.pyplot as plt
 from statsmodels.tsa.arima.model import ARIMA
-import os
-import sys
+from datetime import datetime, timedelta
 
-# Check if the correct number of command-line arguments is provided
-if len(sys.argv) != 4:
-    print("Usage: python arima_forecast.py <stock> <month> <year>")
-    sys.exit(1)
+import yfinance as yf
 
-# Extract command-line arguments
-stock = sys.argv[1]
-month = int(sys.argv[2])
-year = int(sys.argv[3])
+# Read command-line arguments
+stock = input("Enter Stock Symbol: ").upper()
+month = int(input("Enter number of month: "))
+year = int(input("Enter year: "))
 
-# Run the precise_stock_price.py script with the provided arguments
-os.system(f'python precise_stock_price.py {stock} {month} {year}')
+price_data = {}
 
-# Read historical stock prices
-historical_data = pd.read_csv('historical_stock_prices.csv')
+for date in range(1, 31):
+    last_date = (datetime(year, (month % 12) + 1, 1) - timedelta(days=1)).day
+    main_date = min(date, last_date)
+    startd = f"{year}-{month:02d}-01"
+    endd = f"{year}-{month:02d}-{last_date:02d}"
+    target = datetime(year, month, main_date)
+    data = yf.download(stock, startd, endd)
+    try:
+        price = data.loc[target.strftime("%Y-%m-%d")]["Low"]
+        price_data[target] = round(price, 2)
+    except KeyError:
+        print(f"No data available for {target.strftime('%Y-%m-%d')}")
+    except Exception as e:
+        print(f"Exception Error: {e}")
+
+# Read historical stock prices from the original data
+historical_data = pd.DataFrame(price_data.items(), columns=['Date', 'Low Price'])
 historical_data['Date'] = pd.to_datetime(historical_data['Date'])
 historical_data.set_index('Date', inplace=True)
 
