@@ -1,7 +1,6 @@
 import yfinance as yf
 from datetime import datetime, timedelta
 import os
-import sys
 
 price_data = {}
 print("This program will give you stock price for each day of the year")
@@ -13,8 +12,8 @@ print("\033[92mRun this file: python precise_stock_price.py <stock_symbol> <year
 print("    ")
 print("    ")
 
-stock = sys.argv[1].upper()
-year = int(sys.argv[2])
+stock = input("Enter Stock Symbol: ").upper()
+year = int(input("Enter year: "))
 
 
 for month in range(1, 13):
@@ -28,6 +27,7 @@ for month in range(1, 13):
         try:
             price = data.loc[target.strftime("%Y-%m-%d")]["Low"]
             price_data[target] = round(price, 2)
+            os.system("cls")
         except KeyError:
             print(f"No data available for {target.strftime('%Y-%m-%d')}")
         except Exception as e:
