@@ -48,13 +48,8 @@ def plot_graph(stock, year, month, price_data, folder_path):
     plt.close()
 
 if __name__ == "__main__":
-    # Validate command-line arguments
-    if len(sys.argv) != 3:
-        print("Usage: python stock_graph_of_each_month.py <stock_symbol> <year>")
-        sys.exit(1)
-
-    stock = sys.argv[1].upper()
-    year = int(sys.argv[2])
+    stock = input("Enter Stock Symbol: ").upper()
+    year = int(input("Enter year: "))
 
     # Create a folder for images
     folder_path = f'{stock}_images_for_{year}'
