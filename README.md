@@ -18,6 +18,9 @@ The project consists of the following files:
 
 6. **stock_graph_of_each_month.py**: Generates and saves graphs for each month based on processed stock data. It uses the processed data obtained from `monthly_graph.py` to create monthly stock price graphs.
 
+7. **approximation_tool.py**: Fits a curve to given data using a mathematical model and visualizes the fitted curve along with the original data points.
+
+
 
 
 ## Usage
