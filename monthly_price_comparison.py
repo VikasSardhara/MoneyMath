@@ -78,6 +78,7 @@ if __name__ == "__main__":
             "Lowest Price": lowest_price,
             "Lowest Date": lowest_price_date
         }
+        
 
     # Print the dictionary at the end
     print("\nStock Prices Comparison for each month:")
